@@ -181,7 +181,7 @@ class ActiveFile:
         return self.findFolderContainingFile(dir_name, 'phpunit.xml.dist')
 
     def findFolderContainingFile(self, path, filename):
-        if path == '/':
+        if path == '/' or path[1:] == ':\\':
             return None
         if os.path.exists(path + '/' + filename):
             return [ path, filename ]
